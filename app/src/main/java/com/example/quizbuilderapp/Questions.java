@@ -24,11 +24,12 @@ public class Questions extends AppCompatActivity {
     TextView questionTv, progressTv;
 
     //variables
-    static int counter = 0;
+    static int counter = 1;
     final String TAG = "Error";
     static ArrayList<String> questions = new ArrayList<>();
     static ArrayList<String> answers = new ArrayList<>();
     //hashmap variable
+    static HashMap<String, String> qas = new HashMap<String, String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +51,25 @@ public class Questions extends AppCompatActivity {
         answers.add("orange");
         answers.add("yellow");
         answers.add("pink");
+        answers.add("blue");
 
         questions.add("mixed with blue creates purple");
         questions.add("the complementary colour to blue");
         questions.add("a primary colour with six letters");
         questions.add("the colour associated with love");
+        questions.add("often misinterpreted as the colour of the sky");
+
+        for (int i = 0; i < questions.size()-1; i++) {
+            qas.put(questions.get(i), answers.get(i));
+        }
+
+        //while loop to check if there are more questions to ask
+        while (!questions.isEmpty()) {
+            String progress = counter + " / 10";
+            progressTv.setText(progress);
+            QuizOperations.generateQuestion(questions, answers, qas);
+            counter++;
+        }
     }//end onCreate
 
     //onClick for answers
