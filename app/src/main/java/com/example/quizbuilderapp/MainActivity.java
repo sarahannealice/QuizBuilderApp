@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     //views
     Button startBtn;
 
+    //onCreate for start page
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,13 +24,8 @@ public class MainActivity extends AppCompatActivity {
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent questIntent = new Intent("Question");
+                Intent questIntent = new Intent(MainActivity.this, Questions.class);
                 startActivity(questIntent);
-//                Bundle extras = new Bundle();
-//                extras.putString("KEY", "Stuff from bundle");
-//                questIntent.putExtras(extras);
-//                startActivityForResult(questIntent, 1);
-//                setContentView(R.layout.activity_questions);
             }
         });
     }

@@ -25,10 +25,10 @@ public class Results extends AppCompatActivity {
         tryAgainBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mainActivityIntent = new Intent(getBaseContext(), MainActivity.class);
+                Intent mainActivityIntent = new Intent(Results.this, MainActivity.class);
                 startActivity(mainActivityIntent);
+                System.out.println("this ran");
             }
         });
-
     }
 }

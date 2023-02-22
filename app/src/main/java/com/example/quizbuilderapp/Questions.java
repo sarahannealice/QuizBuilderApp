@@ -37,10 +37,12 @@ public class Questions extends AppCompatActivity {
         questionTv = findViewById(R.id.questionTv);
         progressTv = findViewById(R.id.progressTv);
 
+        //if statement to check if file is empty
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_results);
+                Intent resultsIntent = new Intent(Questions.this, Results.class);
+                startActivity(resultsIntent);
             }
         });
     }//end onCreate
