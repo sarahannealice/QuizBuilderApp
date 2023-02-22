@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#C6DFD9"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/questionTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:fontFamily="@font/noto_sans"
+            android:gravity="center"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="@string/question"
+            android:textColor="#2F5832"
+            android:textSize="34sp" />
+
+        <Button
+            android:id="@+id/opt1Btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".01"
+            android:backgroundTint="#2F5832"
+            android:fontFamily="@font/noto_sans"
+            android:insetLeft="75dp"
+            android:insetTop="0dp"
+            android:insetRight="75dp"
+            android:text="@string/option1"
+            android:textAllCaps="false"
+            android:textSize="24sp"
+            app:cornerRadius="30dp" />
+
+        <Button
+            android:id="@+id/opt2Btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".01"
+            android:backgroundTint="#517D55"
+            android:fontFamily="@font/noto_sans"
+            android:insetLeft="75dp"
+            android:insetTop="0dp"
+            android:insetRight="75dp"
+            android:text="@string/option2"
+            android:textAllCaps="false"
+            android:textSize="24sp"
+            app:cornerRadius="35dp" />
+
+        <Button
+            android:id="@+id/opt3Btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".01"
+            android:backgroundTint="#729F85"
+            android:fontFamily="@font/noto_sans"
+            android:insetLeft="75dp"
+            android:insetTop="0dp"
+            android:insetRight="75dp"
+            android:text="@string/option3"
+            android:textAllCaps="false"
+            android:textSize="24sp"
+            app:cornerRadius="35dp" />
+
+        <Button
+            android:id="@+id/opt4Btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".01"
+            android:backgroundTint="#8DB49E"
+            android:fontFamily="@font/noto_sans"
+            android:insetLeft="75dp"
+            android:insetTop="0dp"
+            android:insetRight="75dp"
+            android:text="@string/option4"
+            android:textAllCaps="false"
+            android:textSize="24sp"
+            app:cornerRadius="35dp" />
+
+        <Button
+            android:id="@+id/nextBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#2F5832"
+            android:fontFamily="@font/noto_sans"
+            android:insetLeft="130dp"
+            android:insetTop="75dp"
+            android:insetRight="130dp"
+            android:insetBottom="10dp"
+            android:text="@string/next"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            app:cornerRadius="40dp" />
+
+        <TextView
+            android:id="@+id/progressTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".18"
+            android:fontFamily="@font/sora"
+            android:gravity="bottom|center"
+            android:paddingBottom="30dp"
+            android:text="@string/progress"
+            android:textColor="#2F5832"
+            android:textSize="20sp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

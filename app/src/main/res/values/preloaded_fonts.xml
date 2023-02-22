@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/happy_monkey</item>
+        <item>@font/heebo</item>
+        <item>@font/montserrat</item>
+        <item>@font/montserrat_light</item>
+        <item>@font/noto_sans</item>
+        <item>@font/sora</item>
+    </array>
+</resources>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">QuizBuilderApp</string>
+    <string name="welcome">welcome to the quiz builder</string>
+    <string name="start">start</string>
+    <string name="question">question placeholder</string>
+    <string name="option1">option1</string>
+    <string name="option2">option2</string>
+    <string name="option3">option3</string>
+    <string name="option4">option4</string>
+    <string name="next">next</string>
+    <string name="progress">(0/10)</string>
+    <string name="congrats">congratulations! your score is:</string>
+    <string name="results"># / 10</string>
+    <string name="try_again">try again</string> />
+</resources>
