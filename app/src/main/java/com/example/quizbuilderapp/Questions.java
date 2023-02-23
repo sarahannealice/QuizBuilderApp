@@ -25,6 +25,7 @@ public class Questions extends AppCompatActivity {
 
     //variables
     static int counter;
+    static String question;
     final String TAG = "Error";
 
     @Override
@@ -45,7 +46,8 @@ public class Questions extends AppCompatActivity {
 
         //set initial screen setup
         QuizOperations.generateLists();
-        QuizOperations.generateQuestion();
+        question = QuizOperations.generateQuestion();
+        QuizOperations.generateAnswers(question);
         counter = 1;
         String progress = counter + " / 10";
         progressTv.setText(progress);
@@ -59,7 +61,8 @@ public class Questions extends AppCompatActivity {
                     startActivity(resultsIntent);
                 } else {
                     //randomize questions/answers
-                    QuizOperations.generateQuestion();
+                    question = QuizOperations.generateQuestion();
+                    QuizOperations.generateAnswers(question);
                     counter++;
                     QuizOperations.setProgress(counter);
                 }

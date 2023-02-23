@@ -3,13 +3,16 @@ package com.example.quizbuilderapp;
 import java.util.Collections;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class QuizOperations {
+    //arraylists
     static ArrayList<String> questions = new ArrayList<>();
     static ArrayList<String> answers = new ArrayList<>();
-    //hashmap variable
+    //hashmap
     static HashMap<String, String> qas = new HashMap<String, String>();
 
+    //methods to generate lists
     public static void generateLists() {
         //temporary hardcode answers
         answers.add("red");
@@ -41,17 +44,69 @@ public class QuizOperations {
         }
     }
 
-    public static void generateQuestion() {
-
+    //method to generate random question
+    public static String generateQuestion() {
+        String question;
         Collections.shuffle(questions);
-//        Collections.shuffle(answers);
 
-        //setting question and buttons text
-        Questions.questionTv.setText(questions.get(0));
+        //setting question text
+        question = questions.get(0);
+        Questions.questionTv.setText(question);
         questions.remove(0);
-//        Questions.
+        return question;
     }
 
+    //method to generate random, unique answers
+    public static void generateAnswers(String question) {
+        //reset buttons to blank
+        Questions.opt1Btn.setText(qas.get(""));
+        Questions.opt2Btn.setText(qas.get(""));
+        Questions.opt3Btn.setText(qas.get(""));
+        Questions.opt4Btn.setText(qas.get(""));
+
+        //shuffle answers
+        Collections.shuffle(answers);
+
+        //setup for random generator
+        int min = 1;
+        int max = 4;
+        int answerPosition = (int)Math.floor(Math.random() *(max - min + 1) + min);
+        System.out.println(answerPosition);
+
+        //randomly place correct answer
+        switch (answerPosition) {
+            case 1:
+                Questions.opt1Btn.setText(qas.get(question));
+                break;
+            case 2:
+                Questions.opt2Btn.setText(qas.get(question));
+                break;
+            case 3:
+                Questions.opt3Btn.setText(qas.get(question));
+                break;
+            case 4:
+                Questions.opt4Btn.setText(qas.get(question));
+                break;
+        }
+
+        //fill in rest of buttons
+        for (int i = 0; i < 5; i++) {
+            if (!answers.get(i).equals(qas.get(question))) {
+                if (Questions.opt1Btn.getText().equals("") && !Questions.opt1Btn.getText().equals(answers.get(i))) {
+                    Questions.opt1Btn.setText(answers.get(i));
+                } else if (Questions.opt2Btn.getText().equals("") && !Questions.opt2Btn.getText().equals(answers.get(i))) {
+                    Questions.opt2Btn.setText(answers.get(i));
+                } else if (Questions.opt3Btn.getText().equals("") && !Questions.opt2Btn.getText().equals(answers.get(i))) {
+                    Questions.opt3Btn.setText(answers.get(i));
+                } else if (Questions.opt4Btn.getText().equals("") && !Questions.opt2Btn.getText().equals(answers.get(i))) {
+                    Questions.opt4Btn.setText(answers.get(i));
+                }
+            }
+
+        }
+    }
+
+    //method for progress counter
     public static void setProgress(int counter) {
         String progress = counter + " / 10";
         Questions.progressTv.setText(progress);
