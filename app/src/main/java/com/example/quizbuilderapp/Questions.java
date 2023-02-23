@@ -19,17 +19,13 @@ import java.util.HashMap;
 
 public class Questions extends AppCompatActivity {
     //views
-    Button opt1Btn, opt2Btn, opt3Btn, opt4Btn;
+    static Button opt1Btn, opt2Btn, opt3Btn, opt4Btn;
     Button nextBtn;
-    TextView questionTv, progressTv;
+    static TextView questionTv, progressTv;
 
     //variables
     static int counter = 1;
     final String TAG = "Error";
-    static ArrayList<String> questions = new ArrayList<>();
-    static ArrayList<String> answers = new ArrayList<>();
-    //hashmap variable
-    static HashMap<String, String> qas = new HashMap<String, String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,29 +43,24 @@ public class Questions extends AppCompatActivity {
         questionTv = findViewById(R.id.questionTv);
         progressTv = findViewById(R.id.progressTv);
 
-        answers.add("red");
-        answers.add("orange");
-        answers.add("yellow");
-        answers.add("pink");
-        answers.add("blue");
+        //set initial progress
+        String progress = counter + " / 10";
+        progressTv.setText(progress);
 
-        questions.add("mixed with blue creates purple");
-        questions.add("the complementary colour to blue");
-        questions.add("a primary colour with six letters");
-        questions.add("the colour associated with love");
-        questions.add("often misinterpreted as the colour of the sky");
-
-        for (int i = 0; i < questions.size()-1; i++) {
-            qas.put(questions.get(i), answers.get(i));
-        }
-
-        //while loop to check if there are more questions to ask
-        while (!questions.isEmpty()) {
-            String progress = counter + " / 10";
-            progressTv.setText(progress);
-            QuizOperations.generateQuestion(questions, answers, qas);
-            counter++;
-        }
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {//if statement to check if file is empty
+                if (counter == 10) {
+                    Intent resultsIntent = new Intent(Questions.this, Results.class);
+                    startActivity(resultsIntent);
+                } else {
+                    //randomize questions/answers
+                    QuizOperations.generateQuestion();
+                    counter++;
+                    QuizOperations.setProgress(counter);
+                }
+            }
+        });
     }//end onCreate
 
     //onClick for answers
@@ -94,17 +85,22 @@ public class Questions extends AppCompatActivity {
     };//end onClick for options
 
     //onClick for next
-    public View.OnClickListener nextBtnClicked = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            //if statement to check if file is empty
-            if (counter > 10) {
-                Intent resultsIntent = new Intent(Questions.this, Results.class);
-                startActivity(resultsIntent);
-            } else {
-                //randomize questions/answers
-            }
-
-        }
-    };
+//    public View.OnClickListener nextBtnClicked = new View.OnClickListener() {
+//        @Override
+//        public void onClick(View view) {
+//            switch (view.getId()) {
+//                case R.id.nextBtn:
+//                    //if statement to check if file is empty
+//                    if (counter > 10) {
+//                        Intent resultsIntent = new Intent(Questions.this, Results.class);
+//                        startActivity(resultsIntent);
+//                    } else {
+//                        //randomize questions/answers
+////                QuizOperations.generateQuestion(counter);
+//                        counter++;
+//                        QuizOperations.setProgress(counter);
+//                    }
+//            }
+//        }
+//    };
 }//end question class
