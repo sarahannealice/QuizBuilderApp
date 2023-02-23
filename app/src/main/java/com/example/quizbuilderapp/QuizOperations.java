@@ -1,9 +1,11 @@
 package com.example.quizbuilderapp;
 
+import android.graphics.Color;
+
 import java.util.Collections;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Random;
+import java.util.Objects;
 
 public class QuizOperations {
     //arraylists
@@ -103,6 +105,17 @@ public class QuizOperations {
                 }
             }
 
+        }
+    }
+
+    //method to check chosen answer
+    public static int checkAnswer(String question, String chosenAnswer) {
+        if (Objects.equals(qas.get(question), chosenAnswer)) {
+            Questions.opt1Btn.setBackgroundColor(Color.rgb(140,203,113));
+            return 1;
+        } else {
+            Questions.opt1Btn.setBackgroundColor(Color.rgb(255,87,87));
+            return 0;
         }
     }
 

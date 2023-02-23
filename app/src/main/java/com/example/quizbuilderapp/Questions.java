@@ -24,6 +24,7 @@ public class Questions extends AppCompatActivity {
     static TextView questionTv, progressTv;
 
     //variables
+    static int result;
     static int counter;
     static String question;
     final String TAG = "Error";
@@ -44,50 +45,73 @@ public class Questions extends AppCompatActivity {
         questionTv = findViewById(R.id.questionTv);
         progressTv = findViewById(R.id.progressTv);
 
+        //set answer button event to same listener
+        opt1Btn.setOnClickListener(optBtnClicked);
+        opt2Btn.setOnClickListener(optBtnClicked);
+        opt3Btn.setOnClickListener(optBtnClicked);
+        opt4Btn.setOnClickListener(optBtnClicked);
+
+        //set next button event
+        nextBtn.setOnClickListener(nextBtnClicked);
+
         //set initial screen setup
         QuizOperations.generateLists();
         question = QuizOperations.generateQuestion();
         QuizOperations.generateAnswers(question);
+
         counter = 1;
         String progress = counter + " / 10";
         progressTv.setText(progress);
-
-        //onClick for next
-        nextBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {//if statement to check if file is empty
-                if (counter == 10) {
-                    Intent resultsIntent = new Intent(Questions.this, Results.class);
-                    startActivity(resultsIntent);
-                } else {
-                    //randomize questions/answers
-                    question = QuizOperations.generateQuestion();
-                    QuizOperations.generateAnswers(question);
-                    counter++;
-                    QuizOperations.setProgress(counter);
-                }
-            }
-        });//end onClick for next
     }//end onCreate
 
     //onClick for answers
     public View.OnClickListener optBtnClicked = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            int scoreAdd;
             switch (view.getId()) {
                 case R.id.opt1Btn:
-                    //check if correct
+                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt1Btn.getText());
+                    result += scoreAdd;
+                    System.out.println("result: " + result);
                     break;
                 case R.id.opt2Btn:
-                    //check if correct
+                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt1Btn.getText());
+                    result += scoreAdd;
+                    System.out.println("result: " + result);
                     break;
                 case R.id.opt3Btn:
-                    //check if correct
+                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt1Btn.getText());
+                    result += scoreAdd;
+                    System.out.println("result: " + result);
                     break;
                 case R.id.opt4Btn:
-                    //check if correct
+                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt1Btn.getText());
+                    result += scoreAdd;
+                    System.out.println("result: " + result);
                     break;
             }
         }
     };//end onClick for answers
+
+    //onClick for next
+    public View.OnClickListener nextBtnClicked = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {//if statement to check if file is empty
+            if (counter == 10) {
+                Intent resultsIntent = new Intent(Questions.this, Results.class);
+                startActivity(resultsIntent);
+                System.out.println("your score is: " + result);
+            } else {
+                //randomize questions/answers
+                question = QuizOperations.generateQuestion();
+                QuizOperations.generateAnswers(question);
+                counter++;
+                QuizOperations.setProgress(counter);
+
+                System.out.println("your score is: " + result);
+            }
+        }
+    };//end onClick for next
+
 }//end question class
