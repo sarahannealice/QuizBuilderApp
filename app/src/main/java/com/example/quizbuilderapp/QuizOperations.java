@@ -109,12 +109,38 @@ public class QuizOperations {
     }
 
     //method to check chosen answer
-    public static int checkAnswer(String question, String chosenAnswer) {
+    public static int checkAnswer(String question, String chosenAnswer, int buttonClicked) {
         if (Objects.equals(qas.get(question), chosenAnswer)) {
-            Questions.opt1Btn.setBackgroundColor(Color.rgb(140,203,113));
+            switch (buttonClicked) {
+                case 1:
+                    Questions.opt1Btn.setBackgroundResource(R.color.correct);
+                    break;
+                case 2:
+                    Questions.opt2Btn.setBackgroundResource(R.color.correct);
+                    break;
+                case 3:
+                    Questions.opt3Btn.setBackgroundResource(R.color.correct);
+                    break;
+                case 4:
+                    Questions.opt4Btn.setBackgroundResource(R.color.correct);
+                    break;
+            }
             return 1;
         } else {
-            Questions.opt1Btn.setBackgroundColor(Color.rgb(255,87,87));
+            switch (buttonClicked) {
+                case 1:
+                    Questions.opt1Btn.setBackgroundResource(R.color.incorrect);
+                    break;
+                case 2:
+                    Questions.opt2Btn.setBackgroundResource(R.color.incorrect);
+                    break;
+                case 3:
+                    Questions.opt3Btn.setBackgroundResource(R.color.incorrect);
+                    break;
+                case 4:
+                    Questions.opt4Btn.setBackgroundResource(R.color.incorrect);
+                    break;
+            }
             return 0;
         }
     }

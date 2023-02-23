@@ -7,16 +7,6 @@ import android.util.Log;
 import android.view.*;
 import android.widget.*;
 
-//java specific imports
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOError;
-import java.io.IOException;
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.io.File;
-import java.util.HashMap;
-
 public class Questions extends AppCompatActivity {
     //views
     static Button opt1Btn, opt2Btn, opt3Btn, opt4Btn;
@@ -24,10 +14,10 @@ public class Questions extends AppCompatActivity {
     static TextView questionTv, progressTv;
 
     //variables
-    static int result;
+    static int result = 0;
     static int counter;
     static String question;
-    final String TAG = "Error";
+    public static final String KEY = "KEY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,22 +61,22 @@ public class Questions extends AppCompatActivity {
             int scoreAdd;
             switch (view.getId()) {
                 case R.id.opt1Btn:
-                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt1Btn.getText());
+                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt1Btn.getText(), 1);
                     result += scoreAdd;
                     System.out.println("result: " + result);
                     break;
                 case R.id.opt2Btn:
-                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt1Btn.getText());
+                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt1Btn.getText(), 2);
                     result += scoreAdd;
                     System.out.println("result: " + result);
                     break;
                 case R.id.opt3Btn:
-                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt1Btn.getText());
+                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt1Btn.getText(), 3);
                     result += scoreAdd;
                     System.out.println("result: " + result);
                     break;
                 case R.id.opt4Btn:
-                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt1Btn.getText());
+                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt1Btn.getText(), 4);
                     result += scoreAdd;
                     System.out.println("result: " + result);
                     break;
@@ -100,9 +90,16 @@ public class Questions extends AppCompatActivity {
         public void onClick(View v) {//if statement to check if file is empty
             if (counter == 10) {
                 Intent resultsIntent = new Intent(Questions.this, Results.class);
+                resultsIntent.putExtra(KEY, Integer.toString(result));
                 startActivity(resultsIntent);
                 System.out.println("your score is: " + result);
             } else {
+                //reset button colours
+                opt1Btn.setBackgroundResource(R.color.option1);
+                opt2Btn.setBackgroundResource(R.color.option2);
+                opt3Btn.setBackgroundResource(R.color.option3);
+                opt4Btn.setBackgroundResource(R.color.option4);
+
                 //randomize questions/answers
                 question = QuizOperations.generateQuestion();
                 QuizOperations.generateAnswers(question);

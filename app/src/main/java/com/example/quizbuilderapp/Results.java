@@ -13,6 +13,9 @@ public class Results extends AppCompatActivity {
     Button tryAgainBtn;
     static TextView resultsTv;
 
+    //variables
+    public static final String KEY = "KEY";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +24,10 @@ public class Results extends AppCompatActivity {
         //initializing buttons/textviews
         tryAgainBtn = findViewById(R.id.tryAgainBtn);
         resultsTv = findViewById(R.id.resultsTv);
+
+        Intent resultsIntent = getIntent();
+        String result = resultsIntent.getStringExtra(KEY);
+        resultsTv.setText(result + " / 10");
 
         tryAgainBtn.setOnClickListener(new View.OnClickListener() {
             @Override

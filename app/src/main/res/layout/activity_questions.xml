@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#C6DFD9"
+        android:background="@color/background"
         android:orientation="vertical">
 
         <TextView
@@ -20,7 +20,7 @@
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
             android:text="@string/question"
-            android:textColor="#2F5832"
+            android:textColor="@color/option1"
             android:textSize="34sp" />
 
         <Button
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".01"
-            android:backgroundTint="#2F5832"
+            android:backgroundTint="@color/option1"
             android:fontFamily="@font/noto_sans"
             android:insetLeft="75dp"
             android:insetTop="0dp"
@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".01"
-            android:backgroundTint="#517D55"
+            android:backgroundTint="@color/option2"
             android:fontFamily="@font/noto_sans"
             android:insetLeft="75dp"
             android:insetTop="0dp"
@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".01"
-            android:backgroundTint="#729F85"
+            android:backgroundTint="@color/option3"
             android:fontFamily="@font/noto_sans"
             android:insetLeft="75dp"
             android:insetTop="0dp"
@@ -73,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".01"
-            android:backgroundTint="#8DB49E"
+            android:backgroundTint="@color/option4"
             android:fontFamily="@font/noto_sans"
             android:insetLeft="75dp"
             android:insetTop="0dp"
@@ -87,7 +87,7 @@
             android:id="@+id/nextBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#2F5832"
+            android:backgroundTint="@color/option1"
             android:fontFamily="@font/noto_sans"
             android:insetLeft="130dp"
             android:insetTop="75dp"
@@ -107,7 +107,7 @@
             android:gravity="bottom|center"
             android:paddingBottom="30dp"
             android:text="@string/progress"
-            android:textColor="#2F5832"
+            android:textColor="@color/option1"
             android:textSize="20sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
