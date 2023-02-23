@@ -44,7 +44,7 @@ public class Questions extends AppCompatActivity {
         nextBtn.setOnClickListener(nextBtnClicked);
 
         //set initial screen setup
-        QuizOperations.generateLists();
+        QuizOperations.generateLists(getApplicationContext());
         question = QuizOperations.generateQuestion();
         QuizOperations.generateAnswers(question);
 

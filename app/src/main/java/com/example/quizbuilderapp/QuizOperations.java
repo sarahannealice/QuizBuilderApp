@@ -1,6 +1,11 @@
 package com.example.quizbuilderapp;
 
+import android.content.Context;
+
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Collections;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,9 +18,29 @@ public class QuizOperations {
     //hashmap
     static HashMap<String, String> qas = new HashMap<String, String>();
 
-    //methods to generate lists -- file io
-    public static void generateLists() {
+    //methods to generate lists -- file io -- reference: Kaitlyn Archambault & https://stackoverflow.com/a/68484308
+    public static void generateLists(Context context) {
         InputStream inputStream;
+        BufferedReader read = null;
+
+        try {
+            inputStream = context.getResources().openRawResource(R.raw.quiz_questions);
+
+            if (inputStream != null) {
+                read = new BufferedReader(new InputStreamReader(inputStream));
+
+                //while loop to check if there are more lines to read
+                String fileLine;
+                String[] qa;
+
+                while ((fileLine = read.readLine()) != null) {
+                    qa = fileLine.split("\\$\\$");
+
+                    questions.add(qa[0]);
+                    answers.add(qa[1]);
+                }
+            }
+        } catch (IOException e)
 
         //temporary hardcode answers
         answers.add("red");
