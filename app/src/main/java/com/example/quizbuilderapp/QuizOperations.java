@@ -28,7 +28,7 @@ public class QuizOperations {
         questions.add("the complementary colour to blue");
         questions.add("a primary colour with six letters");
         questions.add("the colour associated with love");
-        questions.add("often misinterpreted as the colour of the sky");
+        questions.add("due to it's rarity, has a shorter history than other colours");
         questions.add("the absence of colour");
         questions.add("the combination of all colours");
         questions.add("the primary colour of this app");

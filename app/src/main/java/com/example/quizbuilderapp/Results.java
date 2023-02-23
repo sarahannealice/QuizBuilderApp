@@ -27,7 +27,6 @@ public class Results extends AppCompatActivity {
             public void onClick(View view) {
                 Intent mainActivityIntent = new Intent(Results.this, MainActivity.class);
                 startActivity(mainActivityIntent);
-                System.out.println("this ran");
             }
         });
     }

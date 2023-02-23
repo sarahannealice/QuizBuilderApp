@@ -24,7 +24,7 @@ public class Questions extends AppCompatActivity {
     static TextView questionTv, progressTv;
 
     //variables
-    static int counter = 1;
+    static int counter;
     final String TAG = "Error";
 
     @Override
@@ -46,6 +46,7 @@ public class Questions extends AppCompatActivity {
         //set initial screen setup
         QuizOperations.generateLists();
         QuizOperations.generateQuestion();
+        counter = 1;
         String progress = counter + " / 10";
         progressTv.setText(progress);
 
