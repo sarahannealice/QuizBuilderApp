@@ -57,50 +57,55 @@ public class Questions extends AppCompatActivity {
     public View.OnClickListener optBtnClicked = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            int scoreAdd;
-
+            int scoreAdd = 0;
 
             switch (view.getId()) {
                 case R.id.opt1Btn:
-                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt1Btn.getText(), 1);
+                    scoreAdd = QuizOperations.checkAnswer((String) questionTv.getText(), (String) opt1Btn.getText(), 1);
                     if (scoreAdd == 1) {
                         opt1Btn.setBackgroundColor(getResources().getColor(R.color.correct, getTheme()));
                     } else {
                         opt1Btn.setBackgroundColor(getResources().getColor(R.color.incorrect, getTheme()));
                     }
+                    //disabling other buttons
+                    QuizOperations.disableBtn();
                     result += scoreAdd;
                     break;
                 case R.id.opt2Btn:
-                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt2Btn.getText(), 2);
+                    scoreAdd = QuizOperations.checkAnswer((String) questionTv.getText(), (String) opt2Btn.getText(), 2);
                     if (scoreAdd == 1) {
                         opt2Btn.setBackgroundColor(getResources().getColor(R.color.correct, getTheme()));
                     } else {
                         opt2Btn.setBackgroundColor(getResources().getColor(R.color.incorrect, getTheme()));
                     }
+                    //disabling other buttons
+                    QuizOperations.disableBtn();
                     result += scoreAdd;
-                    System.out.println("result: " + result);
                     break;
                 case R.id.opt3Btn:
-                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt3Btn.getText(), 3);
+                    scoreAdd = QuizOperations.checkAnswer((String) questionTv.getText(), (String) opt3Btn.getText(), 3);
                     if (scoreAdd == 1) {
                         opt3Btn.setBackgroundColor(getResources().getColor(R.color.correct, getTheme()));
                     } else {
                         opt3Btn.setBackgroundColor(getResources().getColor(R.color.incorrect, getTheme()));
                     }
+                    //disabling other buttons
+                    QuizOperations.disableBtn();
                     result += scoreAdd;
-                    System.out.println("result: " + result);
                     break;
                 case R.id.opt4Btn:
-                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt4Btn.getText(), 4);
+                    scoreAdd = QuizOperations.checkAnswer((String) questionTv.getText(), (String) opt4Btn.getText(), 4);
                     if (scoreAdd == 1) {
                         opt4Btn.setBackgroundColor(getResources().getColor(R.color.correct, getTheme()));
                     } else {
                         opt4Btn.setBackgroundColor(getResources().getColor(R.color.incorrect, getTheme()));
                     }
+                    //disabling other buttons
+                    QuizOperations.disableBtn();
                     result += scoreAdd;
-                    System.out.println("result: " + result);
                     break;
             }
+
         }
     };//end onClick for answers
 
@@ -114,7 +119,10 @@ public class Questions extends AppCompatActivity {
                 startActivity(resultsIntent);
                 System.out.println("your score is: " + result);
             } else {
-                //reset button colours
+                //re-enabling answer buttons
+                QuizOperations.enableBtn();
+
+                //reset answer button colours
                 opt1Btn.setBackgroundColor(getResources().getColor(R.color.option1, getTheme()));
                 opt2Btn.setBackgroundColor(getResources().getColor(R.color.option2, getTheme()));
                 opt3Btn.setBackgroundColor(getResources().getColor(R.color.option3, getTheme()));

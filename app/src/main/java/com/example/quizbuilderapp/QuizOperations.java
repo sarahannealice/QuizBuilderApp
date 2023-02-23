@@ -1,5 +1,6 @@
 package com.example.quizbuilderapp;
 
+import java.io.InputStream;
 import java.util.Collections;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,8 +13,10 @@ public class QuizOperations {
     //hashmap
     static HashMap<String, String> qas = new HashMap<String, String>();
 
-    //methods to generate lists
+    //methods to generate lists -- file io
     public static void generateLists() {
+        InputStream inputStream;
+
         //temporary hardcode answers
         answers.add("red");
         answers.add("orange");
@@ -102,9 +105,8 @@ public class QuizOperations {
                     Questions.opt4Btn.setText(answers.get(i));
                 }
             }
-
         }
-    }
+    }//
 
     //method to check chosen answer
     public static int checkAnswer(String question, String chosenAnswer, int buttonClicked) {
@@ -113,6 +115,22 @@ public class QuizOperations {
         } else {
             return 0;
         }
+    }
+
+    //disable answer buttons
+    public static void disableBtn() {
+        Questions.opt1Btn.setEnabled(false);
+        Questions.opt2Btn.setEnabled(false);
+        Questions.opt3Btn.setEnabled(false);
+        Questions.opt4Btn.setEnabled(false);
+    }
+
+    //re-enable answer buttons
+    public static void enableBtn() {
+        Questions.opt1Btn.setEnabled(true);
+        Questions.opt2Btn.setEnabled(true);
+        Questions.opt3Btn.setEnabled(true);
+        Questions.opt4Btn.setEnabled(true);
     }
 
     //method for progress counter
