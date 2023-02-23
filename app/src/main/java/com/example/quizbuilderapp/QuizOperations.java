@@ -1,7 +1,5 @@
 package com.example.quizbuilderapp;
 
-import android.graphics.Color;
-
 import java.util.Collections;
 import java.util.ArrayList;
 import java.util.HashMap;

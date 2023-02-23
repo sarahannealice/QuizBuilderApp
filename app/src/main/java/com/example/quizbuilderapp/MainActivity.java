@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.*;
 import android.widget.*;
 
-//java specific imports
-
 public class MainActivity extends AppCompatActivity {
     //views
     Button startBtn;
