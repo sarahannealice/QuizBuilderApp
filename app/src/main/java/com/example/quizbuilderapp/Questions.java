@@ -66,17 +66,17 @@ public class Questions extends AppCompatActivity {
                     System.out.println("result: " + result);
                     break;
                 case R.id.opt2Btn:
-                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt1Btn.getText(), 2);
+                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt2Btn.getText(), 2);
                     result += scoreAdd;
                     System.out.println("result: " + result);
                     break;
                 case R.id.opt3Btn:
-                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt1Btn.getText(), 3);
+                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt3Btn.getText(), 3);
                     result += scoreAdd;
                     System.out.println("result: " + result);
                     break;
                 case R.id.opt4Btn:
-                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt1Btn.getText(), 4);
+                    scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt4Btn.getText(), 4);
                     result += scoreAdd;
                     System.out.println("result: " + result);
                     break;
