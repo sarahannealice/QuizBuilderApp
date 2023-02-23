@@ -12,9 +12,6 @@ public class QuizOperations {
     //hashmap
     static HashMap<String, String> qas = new HashMap<String, String>();
 
-    //additional variables
-    Questions myQuestions = new Questions();
-
     //methods to generate lists
     public static void generateLists() {
         //temporary hardcode answers

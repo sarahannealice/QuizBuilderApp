@@ -58,6 +58,8 @@ public class Questions extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             int scoreAdd;
+
+
             switch (view.getId()) {
                 case R.id.opt1Btn:
                     scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt1Btn.getText(), 1);
