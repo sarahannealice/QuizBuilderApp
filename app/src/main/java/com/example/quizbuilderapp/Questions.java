@@ -61,21 +61,40 @@ public class Questions extends AppCompatActivity {
             switch (view.getId()) {
                 case R.id.opt1Btn:
                     scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt1Btn.getText(), 1);
+                    if (scoreAdd == 1) {
+                        opt1Btn.setBackgroundColor(getResources().getColor(R.color.correct, getTheme()));
+                    } else {
+                        opt1Btn.setBackgroundColor(getResources().getColor(R.color.incorrect, getTheme()));
+                    }
                     result += scoreAdd;
-                    System.out.println("result: " + result);
                     break;
                 case R.id.opt2Btn:
                     scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt2Btn.getText(), 2);
+                    if (scoreAdd == 1) {
+                        opt2Btn.setBackgroundColor(getResources().getColor(R.color.correct, getTheme()));
+                    } else {
+                        opt2Btn.setBackgroundColor(getResources().getColor(R.color.incorrect, getTheme()));
+                    }
                     result += scoreAdd;
                     System.out.println("result: " + result);
                     break;
                 case R.id.opt3Btn:
                     scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt3Btn.getText(), 3);
+                    if (scoreAdd == 1) {
+                        opt3Btn.setBackgroundColor(getResources().getColor(R.color.correct, getTheme()));
+                    } else {
+                        opt3Btn.setBackgroundColor(getResources().getColor(R.color.incorrect, getTheme()));
+                    }
                     result += scoreAdd;
                     System.out.println("result: " + result);
                     break;
                 case R.id.opt4Btn:
                     scoreAdd = QuizOperations.checkAnswer((String)questionTv.getText(), (String)opt4Btn.getText(), 4);
+                    if (scoreAdd == 1) {
+                        opt4Btn.setBackgroundColor(getResources().getColor(R.color.correct, getTheme()));
+                    } else {
+                        opt4Btn.setBackgroundColor(getResources().getColor(R.color.incorrect, getTheme()));
+                    }
                     result += scoreAdd;
                     System.out.println("result: " + result);
                     break;
@@ -94,10 +113,10 @@ public class Questions extends AppCompatActivity {
                 System.out.println("your score is: " + result);
             } else {
                 //reset button colours
-                opt1Btn.setBackgroundResource(R.color.option1);
-                opt2Btn.setBackgroundResource(R.color.option2);
-                opt3Btn.setBackgroundResource(R.color.option3);
-                opt4Btn.setBackgroundResource(R.color.option4);
+                opt1Btn.setBackgroundColor(getResources().getColor(R.color.option1, getTheme()));
+                opt2Btn.setBackgroundColor(getResources().getColor(R.color.option2, getTheme()));
+                opt3Btn.setBackgroundColor(getResources().getColor(R.color.option3, getTheme()));
+                opt4Btn.setBackgroundColor(getResources().getColor(R.color.option4, getTheme()));
 
                 //randomize questions/answers
                 question = QuizOperations.generateQuestion();

@@ -12,6 +12,9 @@ public class QuizOperations {
     //hashmap
     static HashMap<String, String> qas = new HashMap<String, String>();
 
+    //additional variables
+    Questions myQuestions = new Questions();
+
     //methods to generate lists
     public static void generateLists() {
         //temporary hardcode answers
@@ -109,36 +112,8 @@ public class QuizOperations {
     //method to check chosen answer
     public static int checkAnswer(String question, String chosenAnswer, int buttonClicked) {
         if (Objects.equals(qas.get(question), chosenAnswer)) {
-            switch (buttonClicked) {
-                case 1:
-                    Questions.opt1Btn.setBackgroundResource(R.color.correct);
-                    break;
-                case 2:
-                    Questions.opt2Btn.setBackgroundResource(R.color.correct);
-                    break;
-                case 3:
-                    Questions.opt3Btn.setBackgroundResource(R.color.correct);
-                    break;
-                case 4:
-                    Questions.opt4Btn.setBackgroundResource(R.color.correct);
-                    break;
-            }
             return 1;
         } else {
-            switch (buttonClicked) {
-                case 1:
-                    Questions.opt1Btn.setBackgroundResource(R.color.incorrect);
-                    break;
-                case 2:
-                    Questions.opt2Btn.setBackgroundResource(R.color.incorrect);
-                    break;
-                case 3:
-                    Questions.opt3Btn.setBackgroundResource(R.color.incorrect);
-                    break;
-                case 4:
-                    Questions.opt4Btn.setBackgroundResource(R.color.incorrect);
-                    break;
-            }
             return 0;
         }
     }
