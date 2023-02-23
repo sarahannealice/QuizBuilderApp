@@ -10,32 +10,45 @@ public class QuizOperations {
     //hashmap variable
     static HashMap<String, String> qas = new HashMap<String, String>();
 
-    public static void generateQuestion() {
+    public static void generateLists() {
+        //temporary hardcode answers
         answers.add("red");
         answers.add("orange");
         answers.add("yellow");
         answers.add("pink");
         answers.add("blue");
+        answers.add("white");
+        answers.add("black");
+        answers.add("green");
+        answers.add("purple");
+        answers.add("complementary");
 
+        //temporary hardcode questions
         questions.add("mixed with blue creates purple");
         questions.add("the complementary colour to blue");
         questions.add("a primary colour with six letters");
         questions.add("the colour associated with love");
         questions.add("often misinterpreted as the colour of the sky");
+        questions.add("the absence of colour");
+        questions.add("the combination of all colours");
+        questions.add("the primary colour of this app");
+        questions.add("a once-royal colour symbolizing nobility");
+        questions.add("these two colours create grey");
 
         //adding arraylists to hashmap
-        qas.put(questions.get(0), answers.get(0));
-        qas.put(questions.get(1), answers.get(1));
-        qas.put(questions.get(2), answers.get(2));
-        qas.put(questions.get(3), answers.get(3));
-        qas.put(questions.get(4), answers.get(4));
+        for (int i = 0; i < questions.size(); i++){
+            qas.put(questions.get(i), answers.get(i));
+        }
+    }
+
+    public static void generateQuestion() {
 
         Collections.shuffle(questions);
-        System.out.println(questions);
 //        Collections.shuffle(answers);
 
         //setting question and buttons text
         Questions.questionTv.setText(questions.get(0));
+        questions.remove(0);
 //        Questions.
     }
 

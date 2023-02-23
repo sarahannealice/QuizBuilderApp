@@ -43,10 +43,13 @@ public class Questions extends AppCompatActivity {
         questionTv = findViewById(R.id.questionTv);
         progressTv = findViewById(R.id.progressTv);
 
-        //set initial progress
+        //set initial screen setup
+        QuizOperations.generateLists();
+        QuizOperations.generateQuestion();
         String progress = counter + " / 10";
         progressTv.setText(progress);
 
+        //onClick for next
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {//if statement to check if file is empty
@@ -60,7 +63,7 @@ public class Questions extends AppCompatActivity {
                     QuizOperations.setProgress(counter);
                 }
             }
-        });
+        });//end onClick for next
     }//end onCreate
 
     //onClick for answers
@@ -82,25 +85,5 @@ public class Questions extends AppCompatActivity {
                     break;
             }
         }
-    };//end onClick for options
-
-    //onClick for next
-//    public View.OnClickListener nextBtnClicked = new View.OnClickListener() {
-//        @Override
-//        public void onClick(View view) {
-//            switch (view.getId()) {
-//                case R.id.nextBtn:
-//                    //if statement to check if file is empty
-//                    if (counter > 10) {
-//                        Intent resultsIntent = new Intent(Questions.this, Results.class);
-//                        startActivity(resultsIntent);
-//                    } else {
-//                        //randomize questions/answers
-////                QuizOperations.generateQuestion(counter);
-//                        counter++;
-//                        QuizOperations.setProgress(counter);
-//                    }
-//            }
-//        }
-//    };
+    };//end onClick for answers
 }//end question class

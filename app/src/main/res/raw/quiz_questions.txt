@@ -6,3 +6,5 @@ the combination of all colours$$black
 these two colours create grey$$complementary
 the colour associated with love$$pink
 often misinterpreted as the colour of the sky$$blue
+the primary colour of this app$$green
+a once-royal colour symbolizing nobility$$purple
