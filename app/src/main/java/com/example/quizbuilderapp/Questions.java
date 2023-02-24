@@ -13,8 +13,9 @@ public class Questions extends AppCompatActivity {
     static TextView questionTv, progressTv;
 
     //variables
-    static int result = 0;
+    static int score = 0;
     static int counter;
+    int numOfQuestions;
     static String question;
     public static final String KEY = "KEY";
 
@@ -44,12 +45,12 @@ public class Questions extends AppCompatActivity {
         nextBtn.setOnClickListener(nextBtnClicked);
 
         //set initial screen setup
-        QuizOperations.generateLists(getApplicationContext());
+        numOfQuestions = QuizOperations.generateLists(getApplicationContext());
         question = QuizOperations.generateQuestion();
         QuizOperations.generateAnswers(question);
 
         counter = 1;
-        String progress = counter + " / 10";
+        String progress = counter + " / " + numOfQuestions;
         progressTv.setText(progress);
     }//end onCreate
 
@@ -57,11 +58,11 @@ public class Questions extends AppCompatActivity {
     public View.OnClickListener optBtnClicked = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            int scoreAdd = 0;
+            int scoreAdd;
 
             switch (view.getId()) {
                 case R.id.opt1Btn:
-                    scoreAdd = QuizOperations.checkAnswer((String) questionTv.getText(), (String) opt1Btn.getText(), 1);
+                    scoreAdd = QuizOperations.checkAnswer((String) questionTv.getText(), (String) opt1Btn.getText());
                     if (scoreAdd == 1) {
                         opt1Btn.setBackgroundColor(getResources().getColor(R.color.correct, getTheme()));
                     } else {
@@ -69,10 +70,10 @@ public class Questions extends AppCompatActivity {
                     }
                     //disabling other buttons
                     QuizOperations.disableBtn();
-                    result += scoreAdd;
+                    score += scoreAdd;
                     break;
                 case R.id.opt2Btn:
-                    scoreAdd = QuizOperations.checkAnswer((String) questionTv.getText(), (String) opt2Btn.getText(), 2);
+                    scoreAdd = QuizOperations.checkAnswer((String) questionTv.getText(), (String) opt2Btn.getText());
                     if (scoreAdd == 1) {
                         opt2Btn.setBackgroundColor(getResources().getColor(R.color.correct, getTheme()));
                     } else {
@@ -80,10 +81,10 @@ public class Questions extends AppCompatActivity {
                     }
                     //disabling other buttons
                     QuizOperations.disableBtn();
-                    result += scoreAdd;
+                    score += scoreAdd;
                     break;
                 case R.id.opt3Btn:
-                    scoreAdd = QuizOperations.checkAnswer((String) questionTv.getText(), (String) opt3Btn.getText(), 3);
+                    scoreAdd = QuizOperations.checkAnswer((String) questionTv.getText(), (String) opt3Btn.getText());
                     if (scoreAdd == 1) {
                         opt3Btn.setBackgroundColor(getResources().getColor(R.color.correct, getTheme()));
                     } else {
@@ -91,10 +92,10 @@ public class Questions extends AppCompatActivity {
                     }
                     //disabling other buttons
                     QuizOperations.disableBtn();
-                    result += scoreAdd;
+                    score += scoreAdd;
                     break;
                 case R.id.opt4Btn:
-                    scoreAdd = QuizOperations.checkAnswer((String) questionTv.getText(), (String) opt4Btn.getText(), 4);
+                    scoreAdd = QuizOperations.checkAnswer((String) questionTv.getText(), (String) opt4Btn.getText());
                     if (scoreAdd == 1) {
                         opt4Btn.setBackgroundColor(getResources().getColor(R.color.correct, getTheme()));
                     } else {
@@ -102,7 +103,7 @@ public class Questions extends AppCompatActivity {
                     }
                     //disabling other buttons
                     QuizOperations.disableBtn();
-                    result += scoreAdd;
+                    score += scoreAdd;
                     break;
             }
 
@@ -113,11 +114,10 @@ public class Questions extends AppCompatActivity {
     public View.OnClickListener nextBtnClicked = new View.OnClickListener() {
         @Override
         public void onClick(View v) {//if statement to check if file is empty
-            if (counter == 10) {
+            if (counter == numOfQuestions) {
                 Intent resultsIntent = new Intent(Questions.this, Results.class);
-                resultsIntent.putExtra(KEY, Integer.toString(result));
+                resultsIntent.putExtra(KEY, Integer.toString(score));
                 startActivity(resultsIntent);
-                System.out.println("your score is: " + result);
             } else {
                 //re-enabling answer buttons
                 QuizOperations.enableBtn();
@@ -133,10 +133,7 @@ public class Questions extends AppCompatActivity {
                 QuizOperations.generateAnswers(question);
                 counter++;
                 QuizOperations.setProgress(counter);
-
-                System.out.println("your score is: " + result);
             }
         }
     };//end onClick for next
-
 }//end question class

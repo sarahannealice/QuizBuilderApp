@@ -1,6 +1,7 @@
 package com.example.quizbuilderapp;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,10 +17,10 @@ public class QuizOperations {
     static ArrayList<String> questions = new ArrayList<>();
     static ArrayList<String> answers = new ArrayList<>();
     //hashmap
-    static HashMap<String, String> qas = new HashMap<String, String>();
+    static HashMap<String, String> qas = new HashMap<>();
 
     //methods to generate lists -- file io -- reference: Kaitlyn Archambault & https://stackoverflow.com/a/68484308
-    public static void generateLists(Context context) {
+    public static int generateLists(Context context) {
         InputStream inputStream;
         BufferedReader read = null;
 
@@ -27,12 +28,11 @@ public class QuizOperations {
             inputStream = context.getResources().openRawResource(R.raw.quiz_questions);
 
             if (inputStream != null) {
+                String fileLine;
+                String[] qa;
                 read = new BufferedReader(new InputStreamReader(inputStream));
 
                 //while loop to check if there are more lines to read
-                String fileLine;
-                String[] qa;
-
                 while ((fileLine = read.readLine()) != null) {
                     qa = fileLine.split("\\$\\$");
 
@@ -40,36 +40,23 @@ public class QuizOperations {
                     answers.add(qa[1]);
                 }
             }
-        } catch (IOException e)
-
-        //temporary hardcode answers
-        answers.add("red");
-        answers.add("orange");
-        answers.add("yellow");
-        answers.add("pink");
-        answers.add("blue");
-        answers.add("white");
-        answers.add("black");
-        answers.add("green");
-        answers.add("purple");
-        answers.add("complementary");
-
-        //temporary hardcode questions
-        questions.add("mixed with blue creates purple");
-        questions.add("the complementary colour to blue");
-        questions.add("a primary colour with six letters");
-        questions.add("the colour associated with love");
-        questions.add("due to it's rarity, has a shorter history than other colours");
-        questions.add("the absence of colour");
-        questions.add("the combination of all colours");
-        questions.add("the primary colour of this app");
-        questions.add("a once-royal colour symbolizing nobility");
-        questions.add("these two colours create grey");
+        } catch (IOException e) {
+            Log.e("FileIOError", "an error has occurred with the file io");
+        } finally {
+            if (read != null) {
+                try {
+                    read.close();
+                } catch (Exception e) {
+                    Log.e("CloseBR", "an error has occurred with closing the buffer reader");
+                }
+            }
+        }
 
         //adding arraylists to hashmap
         for (int i = 0; i < questions.size(); i++){
             qas.put(questions.get(i), answers.get(i));
         }
+        return questions.size();
     }
 
     //method to generate random question
@@ -134,7 +121,7 @@ public class QuizOperations {
     }//
 
     //method to check chosen answer
-    public static int checkAnswer(String question, String chosenAnswer, int buttonClicked) {
+    public static int checkAnswer(String question, String chosenAnswer) {
         if (Objects.equals(qas.get(question), chosenAnswer)) {
             return 1;
         } else {
