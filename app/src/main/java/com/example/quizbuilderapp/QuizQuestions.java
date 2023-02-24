@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.*;
 import android.widget.*;
 
-public class Questions extends AppCompatActivity {
+public class QuizQuestions extends AppCompatActivity {
     //views
     static Button opt1Btn, opt2Btn, opt3Btn, opt4Btn;
     Button nextBtn;
@@ -115,7 +115,7 @@ public class Questions extends AppCompatActivity {
         @Override
         public void onClick(View v) {//if statement to check if file is empty
             if (counter == numOfQuestions) {
-                Intent resultsIntent = new Intent(Questions.this, Results.class);
+                Intent resultsIntent = new Intent(QuizQuestions.this, QuizResults.class);
                 resultsIntent.putExtra(KEY, Integer.toString(score));
                 startActivity(resultsIntent);
             } else {
@@ -123,10 +123,10 @@ public class Questions extends AppCompatActivity {
                 QuizOperations.enableBtn();
 
                 //reset answer button colours
-                opt1Btn.setBackgroundColor(getResources().getColor(R.color.option1, getTheme()));
-                opt2Btn.setBackgroundColor(getResources().getColor(R.color.option2, getTheme()));
-                opt3Btn.setBackgroundColor(getResources().getColor(R.color.option3, getTheme()));
-                opt4Btn.setBackgroundColor(getResources().getColor(R.color.option4, getTheme()));
+                opt1Btn.setBackgroundColor(getResources().getColor(R.color.deep_green, getTheme()));
+                opt2Btn.setBackgroundColor(getResources().getColor(R.color.leaf_green, getTheme()));
+                opt3Btn.setBackgroundColor(getResources().getColor(R.color.sage_green, getTheme()));
+                opt4Btn.setBackgroundColor(getResources().getColor(R.color.soft_sage, getTheme()));
 
                 //randomize questions/answers
                 question = QuizOperations.generateQuestion();

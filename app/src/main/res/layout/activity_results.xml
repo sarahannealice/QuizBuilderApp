@@ -19,7 +19,7 @@
             android:fontFamily="@font/noto_sans"
             android:gravity="center"
             android:text="@string/congrats"
-            android:textColor="@color/option1"
+            android:textColor="@color/deep_green"
             android:textSize="34sp" />
 
         <TextView
@@ -38,7 +38,7 @@
             android:id="@+id/tryAgainBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/option1"
+            android:backgroundTint="@color/deep_green"
             android:fontFamily="@font/noto_sans"
             android:insetLeft="95dp"
             android:insetTop="110dp"

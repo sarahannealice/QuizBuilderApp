@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.*;
 import android.widget.*;
 
-public class MainActivity extends AppCompatActivity {
+public class QuizStart extends AppCompatActivity {
     //views
     Button startBtn;
 
@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_start);
 
         //initializing buttons
         startBtn = findViewById(R.id.startBtn);
@@ -22,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent questIntent = new Intent(MainActivity.this, Questions.class);
+                Intent questIntent = new Intent(QuizStart.this, QuizQuestions.class);
                 startActivity(questIntent);
             }
-        });
-    }
-}
+        });//end onClick for start button
+    }//end onCreate
+}//end main activity class

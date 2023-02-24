@@ -57,7 +57,7 @@ public class QuizOperations {
             qas.put(questions.get(i), answers.get(i));
         }
         return questions.size();
-    }
+    }//end method for generateLists
 
     //method to generate random question
     public static String generateQuestion() {
@@ -66,7 +66,7 @@ public class QuizOperations {
 
         //setting question text
         question = questions.get(0);
-        Questions.questionTv.setText(question);
+        QuizQuestions.questionTv.setText(question);
         questions.remove(0);
         return question;
     }
@@ -74,10 +74,10 @@ public class QuizOperations {
     //method to generate random, unique answers
     public static void generateAnswers(String question) {
         //reset buttons to blank
-        Questions.opt1Btn.setText(qas.get(""));
-        Questions.opt2Btn.setText(qas.get(""));
-        Questions.opt3Btn.setText(qas.get(""));
-        Questions.opt4Btn.setText(qas.get(""));
+        QuizQuestions.opt1Btn.setText(qas.get(""));
+        QuizQuestions.opt2Btn.setText(qas.get(""));
+        QuizQuestions.opt3Btn.setText(qas.get(""));
+        QuizQuestions.opt4Btn.setText(qas.get(""));
 
         //shuffle answers
         Collections.shuffle(answers);
@@ -91,34 +91,34 @@ public class QuizOperations {
         //randomly place correct answer
         switch (answerPosition) {
             case 1:
-                Questions.opt1Btn.setText(qas.get(question));
+                QuizQuestions.opt1Btn.setText(qas.get(question));
                 break;
             case 2:
-                Questions.opt2Btn.setText(qas.get(question));
+                QuizQuestions.opt2Btn.setText(qas.get(question));
                 break;
             case 3:
-                Questions.opt3Btn.setText(qas.get(question));
+                QuizQuestions.opt3Btn.setText(qas.get(question));
                 break;
             case 4:
-                Questions.opt4Btn.setText(qas.get(question));
+                QuizQuestions.opt4Btn.setText(qas.get(question));
                 break;
         }
 
         //fill in rest of buttons
         for (int i = 0; i < 5; i++) {
             if (!answers.get(i).equals(qas.get(question))) {
-                if (Questions.opt1Btn.getText().equals("") && !Questions.opt1Btn.getText().equals(answers.get(i))) {
-                    Questions.opt1Btn.setText(answers.get(i));
-                } else if (Questions.opt2Btn.getText().equals("") && !Questions.opt2Btn.getText().equals(answers.get(i))) {
-                    Questions.opt2Btn.setText(answers.get(i));
-                } else if (Questions.opt3Btn.getText().equals("") && !Questions.opt2Btn.getText().equals(answers.get(i))) {
-                    Questions.opt3Btn.setText(answers.get(i));
-                } else if (Questions.opt4Btn.getText().equals("") && !Questions.opt2Btn.getText().equals(answers.get(i))) {
-                    Questions.opt4Btn.setText(answers.get(i));
+                if (QuizQuestions.opt1Btn.getText().equals("") && !QuizQuestions.opt1Btn.getText().equals(answers.get(i))) {
+                    QuizQuestions.opt1Btn.setText(answers.get(i));
+                } else if (QuizQuestions.opt2Btn.getText().equals("") && !QuizQuestions.opt2Btn.getText().equals(answers.get(i))) {
+                    QuizQuestions.opt2Btn.setText(answers.get(i));
+                } else if (QuizQuestions.opt3Btn.getText().equals("") && !QuizQuestions.opt2Btn.getText().equals(answers.get(i))) {
+                    QuizQuestions.opt3Btn.setText(answers.get(i));
+                } else if (QuizQuestions.opt4Btn.getText().equals("") && !QuizQuestions.opt2Btn.getText().equals(answers.get(i))) {
+                    QuizQuestions.opt4Btn.setText(answers.get(i));
                 }
             }
         }
-    }//
+    }//end method for generateAnswers
 
     //method to check chosen answer
     public static int checkAnswer(String question, String chosenAnswer) {
@@ -131,23 +131,23 @@ public class QuizOperations {
 
     //disable answer buttons
     public static void disableBtn() {
-        Questions.opt1Btn.setEnabled(false);
-        Questions.opt2Btn.setEnabled(false);
-        Questions.opt3Btn.setEnabled(false);
-        Questions.opt4Btn.setEnabled(false);
+        QuizQuestions.opt1Btn.setEnabled(false);
+        QuizQuestions.opt2Btn.setEnabled(false);
+        QuizQuestions.opt3Btn.setEnabled(false);
+        QuizQuestions.opt4Btn.setEnabled(false);
     }
 
     //re-enable answer buttons
     public static void enableBtn() {
-        Questions.opt1Btn.setEnabled(true);
-        Questions.opt2Btn.setEnabled(true);
-        Questions.opt3Btn.setEnabled(true);
-        Questions.opt4Btn.setEnabled(true);
+        QuizQuestions.opt1Btn.setEnabled(true);
+        QuizQuestions.opt2Btn.setEnabled(true);
+        QuizQuestions.opt3Btn.setEnabled(true);
+        QuizQuestions.opt4Btn.setEnabled(true);
     }
 
     //method for progress counter
     public static void setProgress(int counter) {
         String progress = counter + " / 10";
-        Questions.progressTv.setText(progress);
+        QuizQuestions.progressTv.setText(progress);
     }
-}
+}//end quiz operations class

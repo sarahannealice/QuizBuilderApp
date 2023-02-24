@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Results extends AppCompatActivity {
+public class QuizResults extends AppCompatActivity {
     //views
     Button tryAgainBtn;
     static TextView resultsTv;
@@ -32,9 +32,9 @@ public class Results extends AppCompatActivity {
         tryAgainBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mainActivityIntent = new Intent(Results.this, MainActivity.class);
+                Intent mainActivityIntent = new Intent(QuizResults.this, QuizStart.class);
                 startActivity(mainActivityIntent);
             }
-        });
-    }
-}
+        });//end onClick for try again
+    }//end onCreate
+}//end results class

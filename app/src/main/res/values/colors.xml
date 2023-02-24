@@ -8,10 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background">#FFC7E0DA</color>
-    <color name="option1">#FF2F5832</color>
-    <color name="option2">#FF517D55</color>
-    <color name="option3">#FF72A086</color>
-    <color name="option4">#FF8EB59F</color>
+    <color name="deep_green">#FF2F5832</color>
+    <color name="leaf_green">#FF517D55</color>
+    <color name="sage_green">#FF72A086</color>
+    <color name="soft_sage">#FF8EB59F</color>
     <color name="correct">#FF8CCB71</color>
     <color name="incorrect">#FFFF5757</color>
 </resources>
