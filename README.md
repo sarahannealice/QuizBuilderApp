@@ -1,8 +1,8 @@
 # QuizBuilderApp
 assignment 2 for mobile app development
 
-to-do
-* have at least 2 pages where information is transferred 
+the quiz builder must have/be able to:
+* at least 2 pages where information is transferred 
 * read definitions and their corresponding terms from a file using a delimiter to parse
 * use hashmaps to keep the two arraylists connected
 * ask the questions (definitions) randomly, then later remove from arraylist
