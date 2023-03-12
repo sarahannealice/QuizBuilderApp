@@ -1,3 +1,6 @@
+//created by: sarah newman
+//mobi3002: assignment 2 -- quiz builder
+
 package com.example.quizbuilderapp;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -5,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.*;
 import android.widget.*;
+
 
 public class QuizStart extends AppCompatActivity {
     //views
